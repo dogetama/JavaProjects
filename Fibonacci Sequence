@@ -1,0 +1,18 @@
+import java.util.Scanner; //(imports the Scanner function for user input)
+public class Main {
+ static int fibonacci (int n) { //(The main recursive function)
+ if(n<=1) { //(Returns the corresponding Fibonacci value once n is greater than or equal to 1) 
+   return n; //(Returns the corresponding Fibonacci value to the main function)
+ }
+ else {
+   return fibonacci(n-1) + fibonacci (n-2); //(the function loops back to the beginning of the beginning while adding the prior results until n <= 1)
+ }
+ }
+ public static void main(String[] args) //(The main function){
+ Scanner nth = new Scanner(System.in)//(Scanner object for user input);
+ System.out.println ("Choose a number and this program will give you the corresponding Fibonacci number (Only nonnegative numbers). ") //(Instructions for the user);
+ int term = nth.nextInt(), result; //(takes the user’s inputted number)
+ result = fibonacci(term); //(sends the inputted number to the recursive function and awaits the results)
+ System.out.println("The corresponding Fibonacci number is " + result); //(prints the final results for the user)
+ }
+}
