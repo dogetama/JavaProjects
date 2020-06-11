@@ -1,0 +1,31 @@
+import java.lang.Math; //(imports math functions from Java)
+public class Main { //(name of the class) 
+public static void main(String[] args) { //(main function)
+ long infinite = 0; //(the nth term counter, uses long type for biggest data type)
+  long sum = 0; //(variable for the sum of fibonacci numbers)
+  long fibonacciFactor1 = 1; //(A fibonacci number)
+  long fibonnaciFactor2 = 0; //(A fibonacci number)
+  while (infinite < 92){//(loops the sequence until it hits the final term before overflow error occurs) 
+ 
+    sum = fibonacciFactor1 + fibonnaciFactor2; //(the sum of the first two fibonacci numbers)
+    fibonacciFactor1 = fibonnaciFactor2;  //(sets this fibonacci number to the next fibonacci number)
+    fibonnaciFactor2 = sum; //(sets the fibonacci number to the sum)
+ 
+   if(sum % 7 == 0) { //(checks if the fibonacci number is divisible by 7)
+     System.out.println(sum); //(prints the number if it’s divisible by 7) 
+       }   
+   
+  else if(sum % 11 == 0) { //(checks if the fibonacci number is divisible by 11 if it’s not divisible by 7)
+ 
+   System.out.println(sum); //(prints the number if it’s divisible by 11 but not by 7) 
+ 
+  }
+   else if(sum % 5 == 0) { //(checks if the fibonacci number is divisible by 5 if it’s not divisible by 7 and 11)
+   System.out.println(sum); //(prints the number if it’s divisible by 5 but not by 7 and 11) 
+ 
+   }
+ 
+   Infinite++; (signifies the next term number)
+  }
+}
+}
