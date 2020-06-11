@@ -1,0 +1,56 @@
+import java.util.Scanner; //(imports scanner object)
+public class ATM { //(name of the class)
+ public static void main(String[] args) { //(main function)
+   int quarters = 0; //(establishes the quarter integer)
+   int nickels = 0; //(establishes the nickels integer)
+   int dimes = 0; //(establishes the dimes integer)
+   int pennies = 0; //(establishes the pennies integer)
+   int remainderfordimes = 0; //(establishes an integer remainder after modulus operations regarding quarters)
+   int remainderfornickels = 0; //(establishes an integer remainder after modulus operations regarding dimes)
+   int remainderforpennies = 0; //(establishes an integer remainder after modulus operations regarding nickels)
+ 
+ Scanner value = new Scanner(System.in); //(establishes the Scanner object)
+ System.out.println("Welcome to Miramar College Federal Credit Union! How much money do you want to convert into USD coins? (remove the decimal from the total in order to receive the appropriate amount of coins)"); //(asks the user regarding how much money they want to convert into coins)
+ int money = value.nextInt(); //(receives user input)
+ 
+if (money > 50000) {
+  System.out.println("Unfortunately, due to bank and federal regulations, this ATM cannot provide more than $500 in change. Please see a bank teller inside to receive change for more than $500.");
+}
+ 
+else if (money % 25 == 0) { //(checks if the money can be converted to only quarters)
+   quarters = money / 25; //(Gives the amount of quarters possible for the transaction)
+ }
+ 
+ else { //(Checks other options if the money isn’t fully divisible by quarters)
+   remainderfordimes = money % 25; //(Checks the amount of money remaining if not fully divisible by quarters)
+   quarters = money / 25; //(Gives the amount of quarters possible for the transaction)
+   if (remainderfordimes % 10 == 0){ //(checks if the remaining money can be converted to only dimes)
+     dimes = remainderfordimes / 10; //(Gives the amount of dimes possible for the transaction)
+   }
+   else {//(Checks other options if the remaining money isn’t fully divisible by dimes)
+     remainderfornickels = remainderfordimes % 10; //(Checks the amount of money remaining if not fully divisible by dimes)
+     dimes = remainderfordimes / 10; //(Gives the amount of dimes possible for the transaction)
+      if (remainderfornickels % 5 == 0){ //(checks if the remaining money can be converted to only nickels)
+       nickels = remainderfornickels / 5; //(Gives the amount of nickels possible for the transaction)
+ 
+     }
+     else { //(Checks other options if the remaining money isn’t fully divisible by nickels)
+        remainderforpennies = remainderfornickels % 5;//(Checks the amount of money remaining if not fully divisible by nickels)
+         nickels = remainderfornickels / 5; //(Gives the amount of nickels possible for the transaction)
+         if (remainderforpennies % 1 == 0){ //(checks if the remaining money can be converted to only pennies)
+         pennies = remainderforpennies / 1; //(Gives the amount of pennies possible for the transaction)
+         }
+      }
+   }
+ }
+ 
+//(Prints the final total of coins)
+   System.out.println("This is how much you get in USD coins:");
+   System.out.println("Quarters: " + quarters);
+   System.out.println("Dimes: " + dimes);
+   System.out.println("Nickels: " + nickels);
+   System.out.println("Pennies: " + pennies);
+ 
+ 
+ }
+}
