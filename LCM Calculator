@@ -1,0 +1,49 @@
+import java.util.Scanner; //(imports the Scanner object)
+class LCM { //(Name of the class)
+ public static void main(String[] args) { //(main function)
+   int stopper = 0; //(establishes the stopper when counter reaches LCM)
+   int lcm = 0; //(establishes the counter)
+ 
+   Scanner lcmmachine = new Scanner(System.in); //(establishes the Scanner object)
+   System.out.println("Choose a positive number.");
+//(asks the user for a positive number)
+   int firstNumber = lcmmachine.nextInt();
+//(puts user input into an integer)
+   System.out.println("Choose another positive number.");
+//(asks the user for another positive number)
+   int secondNumber = lcmmachine.nextInt();
+//(puts user input into an integer)
+ 
+ 
+ 
+if (firstNumber > secondNumber) { // (checks which one is a bigger number)
+ lcm = firstNumber; // (sets the number to the counter if the if statement is true)
+}
+ 
+else if (firstNumber < secondNumber) { // (checks which one is a bigger number)
+ 
+ lcm = secondNumber; // (sets the number to the counter if the if statement is true)
+ 
+}
+ 
+else {
+lcm = firstNumber; // (sets first number inputted by user if the if statements aren’t valid)
+}
+ 
+ while (stopper != 1) //(establishes the loop for the counter to reach LCM)  {
+   if (lcm % firstNumber == 0 && lcm % secondNumber == 0) //(checks if the counter is divisible by the two user number inputs)  {
+       stopper = 1; //(stops the loop if the statement is true)
+   }
+ 
+   else {
+     Lcm++; //(the counter is increased by 1 if it’s not divisible by the user inputted numbers)
+   }
+ 
+ 
+ }
+ 
+ System.out.println("The LCM of " +  firstNumber + " and " + secondNumber + " is: " + lcm); //(Prints out the final result
+ 
+ }
+}
+ 
