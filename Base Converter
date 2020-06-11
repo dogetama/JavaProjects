@@ -1,0 +1,50 @@
+import java.util.Scanner; //(Imports the Scanner object)
+class Main { // (name of the class)
+  public static void main(String[] args) //(main function) {
+   Scanner selector = new Scanner(System.in); //(establishes Scanner)
+   int stopper = 0; (stopper for the first while loop created)
+   System.out.println("What is the base?"); //(Asks the user for what base they want to convert from base 10)
+   int basechoice = selector.nextInt(); //(basechoice takes the users input for base)
+   System.out.println("What is the integer?"); //(Asks the user for what integer they want to convert)
+   int numberchoice = selector.nextInt();//(numberchoice takes the users input for integer)
+   int prenumberchoice = numberchoice; //(copies numberchoice into a variable used for the first while loop)
+   int i = 1; //(creates the counter for array size)
+   while (stopper == 0) //(The first while loop for determining the array size and it runs until the stopper isn’t 0) {
+     int a = prenumberchoice / basechoice; //(divides the given integer by the base)
+     if (a == 0) //(checks if the result is 0) {
+       stopper = 1; //(stops the function if the result is 0)
+     }
+ 
+     else { 
+       i++; //(counter is increased by one to increase the array size)
+       prenumberchoice = a; //(the given integer is replaced by while loop result)
+     }
+   }
+ 
+int[] printer = new int[i]; //(an array is created with the determined length from the first while loop)
+int j = 0; //(another counter has been established for the 2nd while loop)
+int stopper2 = 0;//(another stoper has been established for the 2nd while loop)
+  while (stopper2 == 0) //(The first while loop is for determining the base conversion and it runs until the stopper isn’t 0) {
+     int b = numberchoice / basechoice; //(divides the given integer by the base)
+     if (b == 0) {//(checks if the result is 0)
+       printer[j] = numberchoice % basechoice; //(sets the result to a final array element in the array)
+       stopper2 = 1; //(stops the loop)
+     }
+ 
+     else {
+       printer[j] = numberchoice % basechoice;//(sets the result to a given array element in the array)
+       j++; //(counter is increased to input the next conversion in the array)
+       numberchoice = b; //(the given integer is replaced by while loop result)
+     }
+  }
+ 
+for (int k = j; k >= 0; k--) //(a for loop is used to print the results of the conversion) {
+ 
+ System.out.print(printer[k]); //(prints out each number of the converted base)
+ 
+}
+ 
+ 
+}
+}
+ 
