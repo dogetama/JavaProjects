@@ -1,0 +1,56 @@
+import java.util.Scanner; //(imports the Scanner object for input)
+class Main { //(name of the class)
+  public static int isPrime(int prime) { //(name of the static method which checks if a number is prime)
+    int composite = 0; //(establishes the integer that verifies a number is composite)
+   for (int k = 2; k < prime; k++) { //(tests each number until the input to see if the input is a composite number)
+     if (prime % k == 0) //(Checks if the current number in the loop divides the input) {
+       composite = k; //(sets the composite variable to the current number if it does divide the input)
+       Break; //(breaks the loop)
+     }
+     }
+ 
+   if (composite == 0) { //(Checks if the composite number didn’t change)
+     return prime; //(returns back the input if this is true)
+ 
+   }
+   else { 
+     return composite; //(returns back the composite variable if it did change)
+   }
+ 
+ 
+   }
+ 
+ 
+  public static void main(String[] args) { //(main method)
+  
+   Scanner factorization = new Scanner(System.in); //(establishes the Scanner Object for user input)
+   System.out.println("Select an integer"); //(asks the user to input a variable)
+   int input = factorization.nextInt(); //(puts the user input into an integer)
+   int stopper = 0; //(establishes the stopper object for the while loop)
+   int checker = isPrime(input); //(calls the static method from the beginning to see if the input is a prime number)
+   System.out.println("The factorization of " + input + " is:"); //(prints out the the factorization)
+     if (checker == input) { //(Checks if the input is prime)
+       System.out.println(checker + " x 1"); //(prints out the factorization if the input is prime)
+     }
+     else {
+         System.out.print(checker + " x "); //(prints out the result of the isPrime function and puts a multiplication symbol)
+         int factor = input / checker; //(divides the user input by the result of the isPrime function call)
+         int rechecker = isPrime(factor); //(calls the isPrime method again to check if the factor is prime)
+         while (stopper == 0) { //(establishes a while loop)
+           if (factor == rechecker) { //(checks if the factor is prime)
+             System.out.print(factor); //(prints out the factor if it’s prime)
+             stopper = 1; //(stops the while loop)
+           }
+           else {
+             System.out.print(rechecker + " x "); //(prints out the result of the isPrime function);
+             factor = factor / rechecker; (factor is divided by rechecker)
+             rechecker = isPrime(factor); //(isPrime function is called again)
+ 
+           }
+ 
+ 
+         }
+ 
+     }
+ }
+}
