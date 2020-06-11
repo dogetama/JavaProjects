@@ -1,0 +1,40 @@
+import java.util.ArrayList; //(imports Arraylist)
+import java.util.Scanner; //(imports Scanner)
+public class Main { //(name of the class) 
+ 
+ public static ArrayList<Integer> game (int players, int skippie)//(The Josephus Game function which retrieves input from user) {
+ ArrayList<Integer> circle = new ArrayList<Integer> (players); //(creates an Arraylist for the circle)
+ for (int i = 1; i <= players; i++) { //(this for loop inputs the position numbers into the Arraylist)
+   circle.add(i);
+   }
+ 
+   if (players == 1) //(checks if the Arraylist only had one player) {
+    
+     return circle; //(returns the results if it does)
+   }
+   else {
+     int stopper = 0; //(stopper for while loop created)
+     int eliminator = skippie - 1; //(the skip number for the game is created)
+     while (stopper == 0){ //(while loop created for the game to run)
+       circle.remove(eliminator); //( a person is removed on each turn based on skip number)
+       eliminator += (skippie - 1) //(skip number is added to the eliminator to reflect the current position);
+       if(circle.size() == 1){ //(checks if only one person is left in the game)
+         stopper = 1; //(stops the game if only one person is left)
+       }
+       else if (eliminator >= circle.size()) //(checks if the position is greater than or equal to the number of players) {
+         eliminator = eliminator % circle.size(); //(the skip number goes back to the original position if it’s greater than the number of players)
+       }
+     }
+     return circle; //(returns the result/winner to the main function)
+   }
+ }
+ public static void main(String[] args) //(main function) {
+   Scanner number = new Scanner(System.in); //(Scanner object created)
+   System.out.println("Number of players?"); //(asks the user for number of players)
+   int n = number.nextInt(); //(takes the user input)
+   System.out.println("Skip Number"); //(asks the user for the skip number)
+   int k = number.nextInt(); //(takes the user input)
+   ArrayList<Integer> result = game(n, k); //(the game gets started with the inputted numbers and receives the results)
+   System.out.println(result); //(the results are printed)
+ }
+}
